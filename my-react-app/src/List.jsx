@@ -6,16 +6,19 @@ function List(){
     const [tasks, setTasks] = useState([]);
     const [name, setName] = useState("");
     const [finishDate, setFinishDate] = useState("");
+    const [type, setType] = useState("");
 
     function handleTasks(){
         const newTask = {taskName: name,
-                        taskFinishDate: finishDate
+                        taskFinishDate: finishDate,
+                        taskType: type
                         };
         setTasks(t => [...t,newTask]);
 
         //  Tohle vymaže inputy
         setName("");
         setFinishDate("");
+    
     }
 
     function handleNameTask(event){
@@ -24,6 +27,10 @@ function List(){
 
     function handleFinishDateTask(event){
         setFinishDate(event.target.value);
+    }
+
+    function handleTypeTask(event){
+        setType(event.target.value);
     }
 
     function handleRemoveOne(index){
@@ -35,14 +42,14 @@ function List(){
         
         if (!confirmClear) return;
         setTasks([]);
-  }
+    }
 
     return (<div className="tasks-container">
 
                 <h2 className="title">TO DO LIST</h2>
                 <ul className="tasks-list">
                     {tasks.map((tasks, index)=> 
-                        <li key={index} className="task-item">
+                        <li key={index} className={`task-item ${tasks.taskType.toLowerCase()}`}>
                           <span> {tasks.taskName} | {tasks.taskFinishDate} </span>
                           <button className="delete-one-button" onClick={() => handleRemoveOne(index)}>x</button>
                         </li>
@@ -51,9 +58,14 @@ function List(){
 
                 
                 <input className="input-field" type="text" value={name} onChange={handleNameTask} placeholder="Enter name of task"/><br/>
-                <input className="input-field" type="date" value={finishDate} onChange={handleFinishDateTask} placeholder="Enter date"/><br/>
-                <button className ="button" onClick={handleTasks}>Add task</button>
-                <button className ="delete-button" onClick={handleClearAll}>Delete all</button>
+                <input className="input-field" type="date" value={finishDate} onChange={handleFinishDateTask}/><br/>
+                <select className="input-field" value={type} onChange={handleTypeTask}>
+                    <option value="Job">Job</option>
+                    <option value="School">School</option>
+                    <option value="personal">Personal</option>
+                </select>
+                    <button className ="button" onClick={handleTasks}>Add task</button>
+                    <button className ="delete-button" onClick={handleClearAll}>Delete all</button>
             </div>);
 }
 
