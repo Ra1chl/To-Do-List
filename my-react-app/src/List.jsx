@@ -12,6 +12,10 @@ function List(){
                         taskFinishDate: finishDate
                         };
         setTasks(t => [...t,newTask]);
+
+        //  Tohle vymaže inputy
+        setName("");
+        setFinishDate("");
     }
 
     function handleNameTask(event){
@@ -20,6 +24,10 @@ function List(){
 
     function handleFinishDateTask(event){
         setFinishDate(event.target.value);
+    }
+
+    function handleRemoveOne(index){
+        setTasks(tasks.filter((_, i) => i !== index))
     }
     
     function handleClearAll() {
@@ -35,7 +43,8 @@ function List(){
                 <ul className="tasks-list">
                     {tasks.map((tasks, index)=> 
                         <li key={index} className="task-item">
-                            {tasks.taskName} | {tasks.taskFinishDate}
+                          <span> {tasks.taskName} | {tasks.taskFinishDate} </span>
+                          <button className="delete-one-button" onClick={() => handleRemoveOne(index)}>x</button>
                         </li>
                     )}
                 </ul>
