@@ -6,7 +6,7 @@ function List(){
     const [tasks, setTasks] = useState([]);
     const [name, setName] = useState("");
     const [finishDate, setFinishDate] = useState("");
-    const [type, setType] = useState("");
+    const [type, setType] = useState("Job");
 
     function handleTasks(){
         const newTask = {taskName: name,

@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  
   padding-left: 150px;
   padding-right: 150px;
+  padding-bottom: 30px;
   font-family: "Segoe UI", Roboto, sans-serif;
   background: #f3f4f6;
   color: #1f2937;
@@ -42,15 +42,18 @@ body {
 }
 
 .tasks-list {
+  height: 150px;
   list-style-type: none;
   padding: 0;
   margin-bottom: 30px;
+    overflow: auto;
+
 }
 
 .tasks-list li {
   background-color: #f9fafb;
   padding: 15px 20px;
-  margin: 10px 0;
+  margin: 10px 30px;
   border-radius: 10px;
   transition: 0.2s ease-in-out;
 }
@@ -94,7 +97,7 @@ body {
   font-size: 1rem;
   font-weight: bold;
   color: white;
-  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  background: linear-gradient(135deg, #3b82f6, #2c8bff);
   border: none;
   border-radius: 10px;
   cursor: pointer;
