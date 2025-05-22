@@ -1,10 +1,12 @@
+import List from "./List.jsx"
 
 function App() {
  
-return(<>
+return(
 
 
-</>);
+<List/>
+);
 }
 
 export default App
