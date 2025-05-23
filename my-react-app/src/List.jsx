@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import "./listInput.css"
 
 function List(){
 
@@ -15,7 +15,7 @@ function List(){
                         };
         setTasks(t => [...t,newTask]);
 
-        //  Tohle vymaže inputy
+        //vymaže inputy
         setName("");
         setFinishDate("");
     

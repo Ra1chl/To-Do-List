@@ -1,12 +1,15 @@
-import List from "./List.jsx"
+import Register from "./Register.jsx";
 
 function App() {
- 
-return(
 
-
-<List/>
-);
-}
+    
+    return( 
+        <>
+            <Register/>
+        </>
+     );
+    
+    
+    };
 
 export default App
